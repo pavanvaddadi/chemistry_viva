@@ -3,7 +3,7 @@
 	$host="localhost";
 	$dbuser="root";
 	$pass="";
-	$dbname="chemisrty lab";
+	$dbname="chemisrty_lab";
 	$conn=mysqli_connect($host,$dbuser,$pass,$dbname);
 	if(mysqli_connect_errno())
 	{
@@ -28,7 +28,7 @@
 		}
 		else
 		{
-			header("Location: index.php?msg=invalid username or password");
+			header("Location: index.php?msg=Invalid username or password");
 		}
 	}
 ?>
