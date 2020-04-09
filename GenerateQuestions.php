@@ -32,8 +32,8 @@
 	</a>
 	</div>';
 	$remainQuestions = count($AllQuestions) - 1;
-	fwrite($fp,"Viva questions for ".$RegID."\n\n");
-	fwrite($fp,$Current_Question.") ".$expTitles[$Current_Question - 1]."\n\n");
+	fwrite($fp,"Questions for ".$RegID."\n\n");
+	fwrite($fp,"Experiment: ".$expTitles[$Current_Question - 1].".\n\nViva Questions:\n");
 	for($i=0; $i<5; $i++)
 	{
 		$Index = rand(0, $remainQuestions);
