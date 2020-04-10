@@ -43,8 +43,6 @@ if(isset($_SESSION['username']))
             </div>
         </div>
     </div>
-    <div class="footer">
-        <p>&copy; Copyright 2020.All Rights Reserved by pavan & srinivas</p>
-    </div>
+    <?php include 'Copyright.php'; ?>
 </body>
 </html>
