@@ -67,6 +67,25 @@ a:hover {
 	margin-top: 10%;
 }
 
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 3;
+	background-color: #0a0a0a0f;
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+}
+
+.text-dark {
+	color: black;
+}
+
+p {
+	margin: 0;
+}
 .primary-color {
 	color: #fff !important;
 	background-color: #5e2572 !important;

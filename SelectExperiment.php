@@ -38,17 +38,21 @@
                     <div class="form-group">
                         <div class="form-group">
                             <select class="form-control mr-sm-2" title="select experiment" name="ExperimentNumber" required>
-                                <option disabled>-- Select Experiment --</option>
-                                <option value='1'>Determination of HCl using sodium carbonate</option>
-                                <option value='2'>Determination of strength of acid in lead acid battery</option>
-                                <option value='3'>Determination of percent of CaO in cement</option>
-                                <option value='4'>Determination of total hardness of water</option>
-                                <option value='5'>COLORIMETRY</option>
-                                <option value='6'>pH metry</option>
-                                <option value='7'>Conductometry</option>
-                                <option value='8'>Potentiometry</option>
-                                <option value='9'>Determnation of acid number and saponification number of lubricant</option>
-                                <option value='10'>Detrmination of adsorption of acetic acid on charcoal</option>
+                                <option>-- Select Experiment --</option>
+                                <optgroup label="Group1">
+                                    <option value='1'>1) Determination of HCl using sodium carbonate</option>
+                                    <option value='2'>2) Determination of strength of acid in lead acid battery</option>
+                                    <option value='3'>3) Determination of percent of CaO in cement</option>
+                                    <option value='4'>4) Determination of total hardness of water</option>
+                                    <option value='9'>9) Determnation of acid number and saponification number of lubricant</option>
+                                    <option value='10'>10) Detrmination of adsorption of acetic acid on charcoal</option>
+                                </optgroup>
+                                <optgroup label="Group2">
+                                    <option value='5'>5) COLORIMETRY</option>
+                                    <option value='6'>6) pH metry</option>
+                                    <option value='7'>7) Conductometry</option>
+                                    <option value='8'>8) Potentiometry</option>
+                                </optgroup>
                             </select>
                         </div>
                     </div>
@@ -66,6 +70,8 @@
             </div>
         </div>
     </div>
-
+    <div class="footer">
+        <p class="text-dark">&copy; Copyright 2020.All Rights Reserved by pavan & srinivas</p>
+    </div>
 	</body>
 </html>
