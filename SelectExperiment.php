@@ -64,7 +64,7 @@
                 if(isset($_GET['submit'])) {
                     include 'GenerateQuestions.php';
                 } else {
-                    echo '<div class="well text-center">No viva questions generated yet!</div>';
+                    echo '<div class="well text-center">Enter the details and click on \'Generate\' </div>';
                 }
                 ?>
             </div>
