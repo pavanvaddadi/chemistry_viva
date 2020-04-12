@@ -5,7 +5,10 @@
 	$Current_Question = $_GET['ExperimentNumber'];
 	$RegID = $_GET['rollnumber'];
 	$con = mysqli_connect($server, $us, $pw,'chemisrty_lab');
-	$sql = "SELECT * FROM `Questions` WHERE `Experiment` != $Current_Question";
+	//$sql = "SELECT * FROM `Questions` WHERE `Experiment` != $Current_Question AND `IsActive` = '1'";
+	$sql = "SELECT questions.Serial, questions.Question, questions.Experiment, experiments.GroupType FROM `questions`\n"
+    . "INNER JOIN experiments ON questions.`Experiment` = experiments.ExperimentNumber\n"
+    . "WHERE questions.Experiment != $Current_Question AND questions.IsActive = 1";
 	$result = mysqli_query($con,$sql);	
 	$RandomSerials = [];
 	$RandomIndexesA = [];
@@ -22,7 +25,6 @@
 		'Determnation of acid number and saponification number of lubricant',
 		'Detrmination of adsorption of acetic acid on charcoal'];
 
-	//mkdir("Viva",0777);
 	$fp = fopen('Viva/Viva_questions('.$RegID.').txt','w');
 	$GroupASerials = [];
 	$GroupBSerials = [];
@@ -32,15 +34,15 @@
 	{
 		$AllQuestions[] = $row['Question'];
 		$AllSerials[] = $row['Serial'];
-		if($row['Experiment']==5 ||$row['Experiment']==6 ||$row['Experiment']==7 ||$row['Experiment']==8)
-		{
-			$GroupBQuestions[] = $row['Question'];
-			$GroupBSerials[] = $row['Serial'];
-		}
-		else
+		if($row['GroupType']=='A')
 		{
 			$GroupAQuestions[] = $row['Question'];
-			$GroupASerials[] = $row['Serial'];			
+			$GroupASerials[] = $row['Serial'];
+		}
+		elseif($row['GroupType']=='B')
+		{
+			$GroupBQuestions[] = $row['Question'];
+			$GroupBSerials[] = $row['Serial'];			
 		}
 	}
 			
@@ -94,10 +96,11 @@
 	}
 	$VivaQuestions[] = $AllQuestions[$Index];
 	$RandomSerials[] = $AllSerials[$Index];
+	
 	echo '<div class="list-group-item">'.($i+$j+1).')&nbsp;'.$VivaQuestions[$i+$j].' </div>';
 	fwrite($fp,($i+$j+1).". ".$VivaQuestions[$i+$j]."\n");
-	/* echo "<pre><table><tr>";
-	echo "<td><pre>Group A";
+	 //echo "<pre><table><tr>";
+	/* echo "<td><pre>Group A";
 	print_r ($GroupASerials);
 	echo "</pre><td><pre>";
 	print_r ($RandomIndexesA);
@@ -113,17 +116,17 @@
 	//print_r($AllQuestions);
 	//print_r($AllSerials);
 	
-	//print_r ($Groups);
-	
-	for($k=0;$k<5;$k++)
+	//print_r ($Groups); */
+	/* echo $CountOfAllQs."&nbsp".$CountOfGroupA."&nbsp".$CountOfGroupB."\n";
+	 for($k=0;$k<5;$k++)
 	{
 		if(in_array($RandomSerials[$k], $GroupASerials))
 			echo "A ";
 		else if (in_array($RandomSerials[$k], $GroupBSerials))
 			echo "B ";
-	}
+	}  */
 	
-	echo "</pre>";  */
+	//echo "</pre>";  
 	echo "</pre></div>";
 	fclose($fp);
 	
