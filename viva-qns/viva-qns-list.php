@@ -54,8 +54,8 @@ $data   = $getExpQuery->fetch_all(MYSQLI_ASSOC);
 				<table class="table table-striped" id="manageMemberTable">
 					<thead>
 						<tr>
-                            <th>Viva Question</th>
-                            <th>Exp No</th>
+                            <th class="pl-0">Viva Question</th>
+                            <th class="pl-0">Exp No</th>
                             <th>Actions</th>
 						</tr>
 					</thead>

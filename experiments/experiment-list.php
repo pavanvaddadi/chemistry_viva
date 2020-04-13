@@ -50,9 +50,9 @@
 				<table class="table table-striped" id="manageMemberTable">
 					<thead>
 						<tr>
-							<th>Exp No.</th>
-							<th>Name of The Experiment</th>
-							<th>Group</th>
+							<th class="pl-0">Exp No.</th>
+							<th class="pl-0">Name of The Experiment</th>
+							<th class="pl-0">Group</th>
 							<th>Actions</th>
 						</tr>
 					</thead>

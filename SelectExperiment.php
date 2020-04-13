@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
     <title>Viva questions</title>
 </head>
-
+<body>
 
     <nav class="navbar primary-color br-0">
         <div class="container wrapper">
@@ -99,5 +99,6 @@
     <script type="text/javascript" src="assests/jquery/jquery.min.js"></script>
     <!-- bootstrap js -->
     <script type="text/javascript" src="assests/js/bootstrap.min.js"></script>
+
 	</body>
 </html>

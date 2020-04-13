@@ -45,7 +45,7 @@
 	}
 			
 	echo '<div class="list-group">
-	<div class="list-group-item primary-color">Experiment for '.$RegID.' : '.$ExperimentName.'</div><br>';
+	<div class="list-group-item"><strong>Experiment for '.$RegID.': </strong>'.$ExperimentName.'</div><br>';
 	echo '<div class="list-group">
 	<div class="list-group-item primary-color">Viva Questions
 	<a class="text-dec-none" href="./Viva/Viva_questions('.$RegID.').txt" download>
