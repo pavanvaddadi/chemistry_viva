@@ -42,7 +42,7 @@
 		elseif($row['GroupType']=='B')
 		{
 			$GroupBQuestions[] = $row['Question'];
-			$GroupBSerials[] = $row['Serial'];			
+			$GroupBSerials[] = $row['Serial'];
 		}
 	}
 			
@@ -96,38 +96,9 @@
 	}
 	$VivaQuestions[] = $AllQuestions[$Index];
 	$RandomSerials[] = $AllSerials[$Index];
-	
+
 	echo '<div class="list-group-item">'.($i+$j+1).')&nbsp;'.$VivaQuestions[$i+$j].' </div>';
 	fwrite($fp,($i+$j+1).". ".$VivaQuestions[$i+$j]."\n");
-	 //echo "<pre><table><tr>";
-	/* echo "<td><pre>Group A";
-	print_r ($GroupASerials);
-	echo "</pre><td><pre>";
-	print_r ($RandomIndexesA);
-	echo "</pre><td><pre>";
-	echo "Group B";
-	print_r ($GroupBSerials);
-	echo "</pre><td><pre>";
-    print_r ($RandomIndexesB);
-	echo "</pre><td><pre>";
-	echo "Selected serials";
-	//echo "</pre><td><pre>";
-	print_r ($RandomSerials);
-	//print_r($AllQuestions);
-	//print_r($AllSerials);
-	
-	//print_r ($Groups); */
-	/* echo $CountOfAllQs."&nbsp".$CountOfGroupA."&nbsp".$CountOfGroupB."\n";
-	 for($k=0;$k<5;$k++)
-	{
-		if(in_array($RandomSerials[$k], $GroupASerials))
-			echo "A ";
-		else if (in_array($RandomSerials[$k], $GroupBSerials))
-			echo "B ";
-	}  */
-	
-	//echo "</pre>";  
-	echo "</pre></div>";
 	fclose($fp);
 	
 ?>

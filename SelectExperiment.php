@@ -4,57 +4,80 @@
 	{
 		session_destroy();
 		header("Location: index.php");
+	} else {
+	    require_once './getExpList.php';
+        $data   = $getExpQuery->fetch_all(MYSQLI_ASSOC);
 	}
-?>
+	?>
+
 <html lang="">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/global.css">
+<head>
+    <link rel="stylesheet" href="assests/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assests/css/global.css">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
-	<head>
-		<title>Viva questions</title>
-	</head>
-	<body>
+    <title>Viva questions</title>
+</head>
+
+
     <nav class="navbar primary-color br-0">
         <div class="container wrapper">
             <div class="navbar-header">
-                <div class="navbar-brand text-white text-dec-none">Generate Viva Questions</div>
+                <div class="nav navbar-nav navbar-right iconBtn">
+                    <a class="navbar-brand text-white text-dec-none" href="SelectExperiment.php">
+                        <button class="btn btn-sm btn-default">Generate Qns</button>
+                    </a>
+                </div>
+                <div class="dropdown configBtn">
+                    <button class="btn btn-sm btn-default dropdown-toggle" type="button" data-toggle="dropdown">Config
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="./experiments/experiment-list.php">Experiments</a></li>
+                        <li><a href="./viva-qns/viva-qns-list.php">Viva Qns</a></li>
+                    </ul>
+                </div>
             </div>
 
-           <div class="nav navbar-nav navbar-right customBtn">
-               <a class="text-dec-none" href="Logout.php">
+            <div class="nav navbar-nav navbar-right customBtn">
+                <a class="text-dec-none" href="Logout.php">
                     <button class="btn btn-sm btn-warning">Logout</button>
-               </a>
-           </div>
+                </a>
+            </div>
         </div>
     </nav>
 
+
+
     <div class="container">
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Generate Questions</div>
             <div class="panel-body">
                 <form class="form-inline" action="./SelectExperiment.php" method="get">
                     <div class="form-group">
                         <input type="text" title='User Roll Number' class="form-control" id="email" placeholder="Enter Roll Number" name="rollnumber" required>
                     </div>
                     <div class="form-group">
-                        <div class="form-group">
-                            <select class="form-control mr-sm-2" title="select experiment" name="ExperimentNumber" required>
+                        <select class="form-control mr-sm-2" title="select experiment" name="ExperimentNumber" required>
                                 <!--<option>-- Select Experiment --</option>-->
-                                <optgroup label="Group A">
-                                    <option value='1'>Determination of HCl using sodium carbonate</option>
-                                    <option value='2'>Determination of strength of acid in lead acid battery</option>
-                                    <option value='3'>Determination of percent of CaO in cement</option>
-                                    <option value='4'>Determination of total hardness of water</option>
-                                    <option value='9'>Determnation of acid number and saponification number of lubricant</option>
-                                    <option value='10'>Detrmination of adsorption of acetic acid on charcoal</option>
-                                </optgroup>
-                                <optgroup label="Group B">
-                                    <option value='5'>COLORIMETRY</option>
-                                    <option value='6'>pH metry</option>
-                                    <option value='7'>Conductometry</option>
-                                    <option value='8'>Potentiometry</option>
-                                </optgroup>
-                            </select>
-                        </div>
+                            <optgroup label="Group A">
+                                <?php
+                                foreach ($data as $row) {
+                                    if($row['GroupType'] == 'A') {
+                                        echo "<option value=" . $row['ExperimentNumber'] . ">" . $row['ExperimentName'] . "</option>";
+                                    }
+                                }
+                                ?>
+                            </optgroup>
+                            <optgroup label="Group B">
+                                <?php
+                                foreach ($data as $row) {
+                                    if($row['GroupType'] == 'B') {
+                                        echo "<option value=" . $row['ExperimentNumber'] . ">" . $row['ExperimentName'] . "</option>";
+                                    }
+                                }
+                                ?>
+                            </optgroup>
+                            ?>
+                        </select>
                     </div>
                     <button name="submit" type="submit" class="btn btn-sm primary-color">Generate</button>
                 </form>
@@ -72,5 +95,9 @@
     </div>
     
 	<?php include 'Copyright.php'; ?>
+    <!-- jquery plugin -->
+    <script type="text/javascript" src="assests/jquery/jquery.min.js"></script>
+    <!-- bootstrap js -->
+    <script type="text/javascript" src="assests/js/bootstrap.min.js"></script>
 	</body>
 </html>

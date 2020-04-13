@@ -11,8 +11,8 @@ if(isset($_SESSION['username']))
 
 <head>
     <title>Login page</title>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="assests/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assests/css/global.css">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 </head>
 <body>
