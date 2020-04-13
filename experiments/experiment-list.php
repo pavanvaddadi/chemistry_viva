@@ -14,15 +14,15 @@
         <div class="navbar-header">
             <div class="nav navbar-nav navbar-right iconBtn">
                 <a class="navbar-brand text-white text-dec-none" href="../SelectExperiment.php">
-                    <button class="btn btn-sm btn-default">Generate Qns</button>
+                    <button class="btn btn-sm btn-default">Generate Questions</button>
                 </a>
             </div>
             <div class="dropdown configBtn">
-                <button class="btn btn-sm btn-default dropdown-toggle" type="button" data-toggle="dropdown">Config
+                <button class="btn btn-sm btn-default dropdown-toggle" type="button" data-toggle="dropdown">Configure Data
                     <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                    <li><a href="./experiment-list.php">Experiments</a></li>
-                    <li><a href="../viva-qns/viva-qns-list.php">Viva Qns</a></li>
+                    <li><a href="./experiment-list.php">Configure Experiments</a></li>
+                    <li><a href="../viva-qns/viva-qns-list.php">Configure Viva Questions</a></li>
                 </ul>
             </div>
         </div>
@@ -39,9 +39,9 @@
 	<div class="container">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h4>Experiment List</h4>
+                <h4>Experiments List</h4>
                 <button class="btn btn-default btn-sm pull pull-right addBtn" data-toggle="modal" data-target="#addMember" id="addMemberModalBtn">
-					<span><i class="fa fa fa-plus fa-stack"></i> </span>Add Experiment
+					<span><i class="fa fa fa-plus fa-stack"></i> </span>New Experiment
 				</button>
             </div>
 
@@ -51,9 +51,9 @@
 					<thead>
 						<tr>
 							<th>Exp No.</th>
-							<th>Name</th>
-							<th>GroupType</th>
-							<th>Option</th>
+							<th>Name of The Experiment</th>
+							<th>Group</th>
+							<th>Actions</th>
 						</tr>
 					</thead>
 				</table>
@@ -67,7 +67,7 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title"><i class="fa fa-plus fa-stack"></i>	Add Experiment</h4>
+	        <h4 class="modal-title"><i class="fa fa-plus fa-stack"></i>	Add New Experiment</h4>
 	      </div>
 	      
 	      <form class="form-horizontal" action="php_action/create.php" method="POST" id="createMemberForm">
@@ -75,7 +75,7 @@
 	      <div class="modal-body">
 	      	<div class="messages"></div>
               <div class="form-group"> <!--/here teh addclass has-error will appear -->
-                  <label for="expNo" class="col-sm-2 control-label">Exp No</label>
+                  <label for="expNo" class="col-sm-2 control-label">Exp no</label>
                   <div class="col-sm-10">
                       <input type="text" class="form-control" id="expNo" name="expNo" placeholder="Experiment No">
                       <!-- here the text will apper  -->
@@ -92,7 +92,7 @@
 			    <label for="group" class="col-sm-2 control-label">Group</label>
 			    <div class="col-sm-10">
 			      <select class="form-control" name="group" id="group">
-			      	<option value="">~~SELECT~~</option>
+			      	<option value="">--SELECT--</option>
 			      	<option value="A">Group A</option>
 			      	<option value="B">Group B</option>
 			      </select>
@@ -116,10 +116,10 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title"><span class="fa fa-trash-o fa-stack text-danger"></span> Remove Experiment</h4>
+	        <h4 class="modal-title"><span class="fa fa-trash-o fa-stack text-danger"></span>Remove Experiment	</h4>
 	      </div>
 	      <div class="modal-body">
-	        <p>Do you really want to remove ?</p>
+	        <p>Do you really want to remove the experiment?</p>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -164,7 +164,7 @@
 			    <label for="editGroup" class="col-sm-2 control-label">Group</label>
 			    <div class="col-sm-10">
 			      <select class="form-control" name="editGroup" id="editGroup">
-			      	<option value="">~~SELECT~~</option>
+			      	<option value="">--SELECT--</option>
 			      	<option value="A">Group A</option>
 			      	<option value="B">Group B</option>
 			      </select>

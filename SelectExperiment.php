@@ -24,15 +24,15 @@
             <div class="navbar-header">
                 <div class="nav navbar-nav navbar-right iconBtn">
                     <a class="navbar-brand text-white text-dec-none" href="SelectExperiment.php">
-                        <button class="btn btn-sm btn-default">Generate Qns</button>
+                        <button class="btn btn-sm btn-default">Generate Questions</button>
                     </a>
                 </div>
                 <div class="dropdown configBtn">
-                    <button class="btn btn-sm btn-default dropdown-toggle" type="button" data-toggle="dropdown">Config
+                    <button class="btn btn-sm btn-default dropdown-toggle" type="button" data-toggle="dropdown">Configure Data	
                         <span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                        <li><a href="./experiments/experiment-list.php">Experiments</a></li>
-                        <li><a href="./viva-qns/viva-qns-list.php">Viva Qns</a></li>
+                        <li><a href="./experiments/experiment-list.php">Configure Experiments</a></li>
+                        <li><a href="./viva-qns/viva-qns-list.php">Configure Viva Questions</a></li>
                     </ul>
                 </div>
             </div>

@@ -1,0 +1,10 @@
+Questions for 344
+
+Experiment: New experiment 1.
+
+Viva Questions:
+1. What is the indicator used in the determination of saponification value?
+2. Phenolphthalein is a suitable indicator for the present experiment- justify
+3. Discuss the principle behind working of conductometer.
+4. Beer's law and its mathematical expression
+5. What is EBT ?

@@ -1,0 +1,10 @@
+Questions for 2574
+
+Experiment: COLORIMETRY.
+
+Viva Questions:
+1. Plot a graph between concentration of electrolyte and voltage of a lead acid battery.
+2. What is oil?
+3. What is pH?
+4. What is potential, oxidation potential and reduction potential?
+5. What is meant by softening of water?

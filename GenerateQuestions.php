@@ -1,35 +1,33 @@
 <?php
-	$us="root";
-	$pw="";
-	$server="localhost";
-	$Current_Question = $_GET['ExperimentNumber'];
-	$RegID = $_GET['rollnumber'];
-	$con = mysqli_connect($server, $us, $pw,'chemisrty_lab');
-	//$sql = "SELECT * FROM `Questions` WHERE `Experiment` != $Current_Question AND `IsActive` = '1'";
-	$sql = "SELECT questions.Serial, questions.Question, questions.Experiment, experiments.GroupType FROM `questions`\n"
-    . "INNER JOIN experiments ON questions.`Experiment` = experiments.ExperimentNumber\n"
-    . "WHERE questions.Experiment != $Current_Question AND questions.IsActive = 1";
-	$result = mysqli_query($con,$sql);	
+	include './getExpList.php';
+    $data = $getExpQuery->fetch_all(MYSQLI_ASSOC);
+	
 	$RandomSerials = [];
 	$RandomIndexesA = [];
 	$RandomIndexesB = [];
-	
-	$expTitles = ['Determination of HCl using sodium carbonate',
-		'Determination of strength of acid in lead acid battery',
-		'Determination of percent of CaO in cement',
-		'Determination of total hardness of water',
-		'COLORIMETRY',
-		'pH metry',
-		'Conductometry',
-		'Potentiometry',
-		'Determnation of acid number and saponification number of lubricant',
-		'Detrmination of adsorption of acetic acid on charcoal'];
-
-	$fp = fopen('Viva/Viva_questions('.$RegID.').txt','w');
 	$GroupASerials = [];
 	$GroupBSerials = [];
 	$GroupAQuestions = [];
 	$GroupBQuestions = [];
+	$Current_Question = $_GET['ExperimentNumber'];
+	$RegID = $_GET['rollnumber'];
+	$us="root";
+	$pw="";
+	$server="localhost";
+	$con = mysqli_connect($server, $us, $pw,'chemisrty_lab');
+	$sql = "SELECT questions.Serial, questions.Question, questions.Experiment, experiments.GroupType FROM `questions`\n"
+    . "INNER JOIN experiments ON questions.`Experiment` = experiments.ExperimentNumber\n"
+    . "WHERE questions.Experiment != $Current_Question AND questions.IsActive = 1";
+	$result = mysqli_query($con,$sql);	
+		
+	foreach ($data as $row)
+	{
+        if($row['ExperimentNumber'] == $Current_Question )
+		{
+			$ExperimentName = $row['ExperimentName'];
+		}
+	} 
+	$fp = fopen('Viva/Viva_questions('.$RegID.').txt','w');
 	for($i=0; ($row=mysqli_fetch_assoc($result))>0; $i++)
 	{
 		$AllQuestions[] = $row['Question'];
@@ -47,7 +45,9 @@
 	}
 			
 	echo '<div class="list-group">
-	<div class="list-group-item primary-color">Viva questions for '.$RegID.'
+	<div class="list-group-item primary-color">Experiment for '.$RegID.' : '.$ExperimentName.'</div><br>';
+	echo '<div class="list-group">
+	<div class="list-group-item primary-color">Viva Questions
 	<a class="text-dec-none" href="./Viva/Viva_questions('.$RegID.').txt" download>
 		<button class="btn btn-default btn-sm pull-right iconBtn">Download</button>
 	</a>
@@ -57,7 +57,7 @@
 	$CountOfGroupB = count($GroupBSerials) - 1;
 	
 	fwrite($fp,"Questions for ".$RegID."\n\n");
-	fwrite($fp,"Experiment: ".$expTitles[$Current_Question - 1].".\n\nViva Questions:\n");
+	fwrite($fp,"Experiment: ".$ExperimentName.".\n\nViva Questions:\n");
 	//Questions 1 ad 2 from Group A
 	for($i=0; $i<2; $i++)
 	{

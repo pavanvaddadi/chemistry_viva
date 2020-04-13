@@ -16,10 +16,10 @@ if($_POST) {
 
 	if($query === TRUE) {			
 		$validator['success'] = true;
-		$validator['messages'] = "Experiment is updated Successfully ";
+		$validator['messages'] = "Changes Saved Successfully";
 	} else {		
 		$validator['success'] = false;
-		$validator['messages'] = "Experiment Record Updation field";
+		$validator['messages'] = "Could not save the changes";
 	}
 
 	// close the database connection

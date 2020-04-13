@@ -11,7 +11,7 @@ while ($row = $query->fetch_assoc()) {
     $actionButton = '
 	<div class="btn-group">
 	  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	    Action <span class="caret"></span>
+	    Actions <span class="caret"></span>
 	  </button>
 	  <ul class="dropdown-menu">
 	    <li><a type="button" data-toggle="modal" data-target="#editMemberModal" onclick="editMember('.$row['ExperimentNumber'].')"> <i class="fa fa-pencil fa-stack text-dark"></i> Edit</a></li>
